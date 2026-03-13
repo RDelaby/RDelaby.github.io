@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Rémi Delaby – Home</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <p>Your website is working.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Rémi Delaby — Incidence Geometry</title>
+  <meta name="description" content="Incidence geometry, classification algorithms, and datasets.">
+  <link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Rémi Delaby</h1>
+      <nav>
+        <a href="./atlas.html">Atlas</a>
+        <a href="#papers">Papers</a>
+        <a href="#software">Software</a>
+        <!-- <a href="/CV.pdf">CV</a> -->
+      </nav>
+    </header>
+
+    <p class="lead">
+      I’m a scientist working on <strong>incidence geometry</strong> and algorithmic classification of finite structures.
+      This site hosts the datasets and supplementary materials that accompany my work.
+    </p>
+
+    <section id="highlight">
+      <h2>Geometry Atlas</h2>
+      <p>Browse the classification summary and download the full dataset.</p>
+      <p>
+        <a class="btn" href="./atlas.html">Open the Atlas</a>
+        <a class="btn ghost" href="./data/atlas.zip">Download (ZIP)</a>
+      </p>
+      <p class="meta">Persistent URL: <code>https://rdelaby.github.io/atlas.html</code></p>
+    </section>
+
+    <section id="papers">
+      <h2>Papers</h2>
+
+      <!-- Example entry; replace with your own -->
+      <div class="card">
+        <h3>Title of the paper about the classification algorithm (Year)</h3>
+        <p>
+          Short abstract: we present an algorithm that classifies [family/parameters], providing completeness guarantees and datasets.
+        </p>
+        <p class="meta">
+          <a href="#">Preprint (arXiv)</a> ·
+          <a href="#">Journal</a> ·
+          <a href="./data/atlas.zip">Data</a> ·
+          <a href="#">Code</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="software">
+      <h2>Software</h2>
+      <ul>
+        <li><strong>Classifier</strong> — Implementation of the search/classification algorithm (language/toolbox). <a href="#">Repository</a>.</li>
+        <li><strong>Parsers</strong> — Scripts to convert to GAP/JSON/CSV. <a href="#">Repository</a>.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <span>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></span>
+      · <span>ORCID / Scholar / GitHub: <a href="https://github.com/RDelaby">@RDelaby</a></span>
+    </footer>
+  </div>
+</body>
 </html>
+``
