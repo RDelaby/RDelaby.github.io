@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- MathJax config + macros -->
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$']],
+      macros: {
+        Mvq: "\\mathrm{M}_{v}(q)",
+        Jq: "\\mathrm{J}(q)"
+      }
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+  
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Incidence Geometry Atlas — Rémi Delaby</title>
