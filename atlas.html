@@ -54,15 +54,36 @@
       </p>
     </div>
 
-    <section>
-      <h2>Contents</h2>
-      <ul>
-        <li><a href="./data/geometries.json">geometries.json</a> — global list of geometries and metadata</li>
-        <li><a href="./data/incidence_matrices/">incidence_matrices/</a> — matrices per instance (CSV/MTX)</li>
-        <li><a href="./data/gap/">gap/</a> — GAP representations</li>
-        <li><a href="./data/atlas.zip">atlas.zip</a> — everything in one archive</li>
-      </ul>
-    </section>
+    <h2>Families of Groups</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th># of geometries</th>
+          <th>Size of residues (number)</th>
+          <th>Time (s)</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td>$M_{24}$</td>
+          <td><a href="./data/groups/M24.txt">5</a></td>
+          <td>
+            6(2), 7(1), 8(2), 6(2), 7(1), 8(2)<br/>
+            6(2), 7(1), 8(2), 6(2), 7(1), 8(2)
+          </td>
+          <td>10</td>
+        </tr>
+        
+        <tr>
+          <td>$J_1$</td>
+          <td><a href="./data/groups/J1.txt">6</a></td>
+          <td>6(3), 7(1), 8(2)</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+    </table>
 
     <section>
       <h2>Summary</h2>
@@ -73,52 +94,11 @@
       <!-- If you want to add parameters, do it here -->
     </section>
 
-    <section id="examples">
-      <h2>Representative Examples</h2>
-      <p class="meta">Loaded from <code>data/index.json</code> if present (optional).</p>
-      <div id="example-list" class="card">Loading…</div>
-    </section>
 
     <footer class="footer">
       <span>Maintained by <a href="./">Rémi Delaby</a>.</span>
     </footer>
   </div>
-
-  <script>
-    // Optional: render a few representative entries from data/index.json
-    async function loadExamples(){
-      const box = document.getElementById('example-list');
-      try{
-        const res = await fetch('./data/index.json', {cache:'no-store'});
-        if(!res.ok) throw new Error(res.statusText);
-        const data = await res.json();
-        if(!Array.isArray(data) || data.length===0){
-          box.textContent = 'No index.json found or it is empty.';
-          return;
-        }
-        const ul = document.createElement('ul');
-        data.slice(0, 25).forEach(item => {
-          const li = document.createElement('li');
-          const name = item.name || 'Unnamed geometry';
-          const link = item.path ? (`./data/${item.path}`) : null;
-          li.innerHTML = link ? `<a href="${link}">${name}</a>` : name;
-          if(item.params){
-            const small = document.createElement('span');
-            small.className = 'meta';
-            small.style.marginLeft = '0.5rem';
-            small.textContent = `(${item.params})`;
-            li.appendChild(small);
-          }
-          ul.appendChild(li);
-        });
-        box.innerHTML = '';
-        box.appendChild(ul);
-      }catch(e){
-        box.textContent = 'Could not load examples (index.json missing).';
-      }
-    }
-    loadExamples();
-  </script>
 </body>
 </html>
 ``
