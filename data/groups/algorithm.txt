@@ -8,9 +8,7 @@ t := Cputime();
 
 G := sub<Sym(10)|(3, 5, 7, 10)(4, 8, 9, 6), (1, 2)(3, 6)(4, 5)(7, 8)(9, 10), (1, 2)(3, 4)(5, 8)(6, 10)(7, 9), (3, 7)(4, 9)(5, 10)(6, 8), (1, 3, 5, 10, 7), (2, 4, 8, 6, 9)>;
 
-load "mcl";
-
-G := PGL(2,27);
+load "ON.txt";
 
 function IsNew(G, geometries, geometry)
         rgeom:= Reverse(geometry);
@@ -66,7 +64,7 @@ for i in U do
         end if;
 end for;
 
-SetOutputFile("Atlas_PGL_2_27.txt");
+SetOutputFile("Atlas_ON.txt");
 
 prediagrams := [];
 
