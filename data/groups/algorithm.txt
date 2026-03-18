@@ -66,6 +66,8 @@ SetOutputFile("Atlas_ON.txt");
 
 prediagrams := [];
 
+Sort(~geometries, func<x, y | Integers()!(Order(x[1]*x[2]) - Order(y[1]*y[2]))>);
+
 for u in geometries do
         cg:=CosetGeometryFromCGroup(sub<G|u>);
         v,d,e := Diagram(cg);
