@@ -25,13 +25,11 @@ function HasDualityAndTriality(G, geometry)
         end if;
 end function;
 
-grouplist := [Sym(n) : n in [3..10]];
-
-for n in [1..#grouplist] do
+for n in [2..20] do
 
 t := Cputime();
 
-G := grouplist[n];
+G := Sym(n);
 
 U := Classes(G);
 involutions := {@ @};
