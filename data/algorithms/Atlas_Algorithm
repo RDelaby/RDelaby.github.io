@@ -85,8 +85,6 @@ for x in uniques do
   Append(~diagrams,[x,#{i : i in [1..#prediagrams] | (prediagrams[i] eq x) }/3]);
 end for;
 
-Sort(diagrams);
-
 #geometries;
 Sort(diagrams);
 
