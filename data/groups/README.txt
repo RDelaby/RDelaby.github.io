@@ -1,4 +1,4 @@
-The data is subsequent triples of involutions r1,r2,r3 in a list followed by their associated diagram in no particular order. 
+The data is subsequent triples of involutions r1,r2,r3 in a list followed by their associated diagram in increasing size of the residues order. 
 Once all the geometries have been enumerated, the algorithm gives the number of the geometries and a list of l such that 
 l[i][1] is a residue size for a geometry and l[i][2] is the number of geometries having l[i][1] as residue size.
 Annotated example for G = PGL(2,27). The commentaries are after // which do not appear in the original txt file.
