@@ -62,7 +62,7 @@ for i in U do
         end if;
 end for;
 
-SetOutputFile("Sym13Test.txt");
+SetOutputFile("Atlas_Sym_13.txt");
 
 prediagrams := [];
 
@@ -85,8 +85,10 @@ for x in uniques do
   Append(~diagrams,[x,#{i : i in [1..#prediagrams] | (prediagrams[i] eq x) }/3]);
 end for;
 
+Sort(diagrams);
+
 #geometries;
-diagrams;
+Sort(diagrams);
 
 Cputime(t);
 UnsetOutputFile();
