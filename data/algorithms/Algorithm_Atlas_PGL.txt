@@ -73,7 +73,7 @@ if not(geometries eq []) then
 end if;
 
 if (geometries eq []) then
-  fname := Sprintf("Atlas_PGL_2_%o_x.txt", q);
+  fname := Sprintf("nohup.txt", q);
 end if;
 
 SetOutputFile(fname);
