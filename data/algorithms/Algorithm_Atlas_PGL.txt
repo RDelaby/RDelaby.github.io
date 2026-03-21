@@ -70,11 +70,11 @@ end for;
 
 if not(geometries eq []) then
   fname := Sprintf("Atlas_PGL_2_%o.txt", q);
-end if
+end if;
 
-if geometries eq [] then
+if (geometries eq []) then
   fname := Sprintf("Atlas_PGL_2_%o_x.txt", q);
-end if
+end if;
 
 SetOutputFile(fname);
 
