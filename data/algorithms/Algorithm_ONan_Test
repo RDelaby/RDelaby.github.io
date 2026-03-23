@@ -1,6 +1,6 @@
 /*
 
-Takes as input a permutation group G. Outputs a list of triple of involutions.
+Takes as input a permutation group G. Outputs a list of triple of involutions. Process 9939.
 
 */
 
@@ -31,7 +31,7 @@ load "ON.txt";
 
 Syl := SylowSubgroup(G,3);
 z := Random({g : g in Syl | Order(g) eq 3});
-print "found an element of order 3";
+
 x := G.1;
 CC := Centralizer(G,x);
 P := TransversalProcess(G,CC);
