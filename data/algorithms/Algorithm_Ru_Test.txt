@@ -1,6 +1,6 @@
 /*
 
-Takes as input a permutation group G. Outputs a list of triple of involutions. Process 9939.
+Takes as input a permutation group G. Outputs a list of triple of involutions. Process 10134.
 
 */
 
