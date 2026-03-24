@@ -1,4 +1,4 @@
 Currently running : PGL_2_q for 100 < q < 500 with q a power of a prime. It does not show the files where no geometry is found.
 PGL_2_q for 100 < q < 200 PID 6701.
-Sym(16) to Sym(20) 
-Alt(16) to Alt(20)
+PSL(2,q), 1<=q<=500 PID 14358 
+PGammaL(2,q), 1 <=q<=500 PID 13537
