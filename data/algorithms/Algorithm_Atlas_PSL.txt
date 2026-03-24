@@ -1,0 +1,108 @@
+/*
+
+Takes as input a permutation group G. Outputs a list of triple of involutions.
+
+*/
+
+function IsNew(G, geometries, geometry)
+        rgeom:= Reverse(geometry);
+        for x in geometries do
+                g:=sub<G|x>;
+                if IsHomomorphism(g,g,geometry) or IsHomomorphism(g,g,rgeom) then
+                        return false;
+                end if;
+        end for;
+        return true;
+end function;
+
+function HasDualityAndTriality(G, geometry)
+        g:=sub<G|geometry>;
+        dualGeom:=[geometry[1], geometry[3], geometry[2]];
+        if IsHomomorphism(g,g,dualGeom) then // il y a une dualité
+                return true;
+        else
+                return false;
+        end if;
+end function;
+
+bound := 500;
+primes := PrimesUpTo(bound);
+primes := SequenceToSet(primes);
+
+for q in {k^i : k in primes, i in [1..bound] | (k^i lt bound)} do
+
+t := Cputime();
+
+G := PSL(2,q);
+
+U := Classes(G);
+involutions := {@ @};
+geometries := [];
+for i in U do
+        if (i[1] eq 2) then
+                x := i[3];
+                involutions := involutions join Class(G,x);
+        end if;
+end for;
+
+AG := AutomorphismGroup(G);
+map, PG := PermutationRepresentation(AG); // map is an isomorphism from PG -> AG where PG is the permutation representation of Aut(G).
+invmap := Inverse(map); // inverse isomorphism of map AG -> PG.
+U := Classes(PG);
+for i in U do
+        if (i[1] eq 3) then
+                z := i[3];
+                h := invmap(z); // on calcule h dans Aut(G) lié à z d'ordre 3 (c'est donc aussi un automorphisme d'ordre 3)
+                for p in involutions do
+                    hp:=h(p);
+                        hhp:=h(hp);
+                        if (sub<G | p, hp, hhp> eq G) and not(sub<G | p,hp> eq G) and (#(sub<G | hp, hhp > meet sub< G |p, hhp > meet sub< G | p, hp >) eq 1) then
+                                cg := CosetGeometry(G,{ sub<G | hp, hhp > , sub< G |p, hhp > , sub< G | p, hp >} );
+                                if (IsFTGeometry(cg) and IsRC(cg)) then
+                                        if IsNew(G,geometries,[p,hp,hhp]) and not(HasDualityAndTriality(G, [p,hp,hhp])) then
+                                                Append(~geometries, [p,hp,hhp]);
+                                        end if;
+                                end if;
+                        end if;
+                end for;
+        end if;
+end for;
+
+if not(geometries eq []) then
+  fname := Sprintf("Atlas_PSL_2_%o.txt", q);
+end if;
+
+if (geometries eq []) then
+  fname := Sprintf("nohup.txt", q);
+end if;
+
+SetOutputFile(fname);
+
+prediagrams := [];
+
+Sort(~geometries, func<x, y | Integers()!(Order(x[1]*x[2]) - Order(y[1]*y[2]))>);
+
+for u in geometries do
+        cg:=CosetGeometryFromCGroup(sub<G|u>);
+        v,d,e := Diagram(cg);
+        u;
+        for y in e do
+                y, Label(y);
+                Append(~prediagrams, Label(y)[1]);
+        end for;
+end for;
+
+uniques := SequenceToSet(prediagrams);
+diagrams := [];
+
+for x in uniques do 
+  Append(~diagrams,[x,#{i : i in [1..#prediagrams] | (prediagrams[i] eq x) }/3]);
+end for;
+
+#geometries;
+Sort(diagrams);
+
+Cputime(t);
+UnsetOutputFile();
+
+end for;
