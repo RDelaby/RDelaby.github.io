@@ -2,3 +2,4 @@ Currently running : PGL_2_q for 100 < q < 500 with q a power of a prime. It does
 PGL_2_q for 100 < q < 200 PID 6701.
 PSL(2,q), 1<=q<=500 PID 14358 
 PGammaL(2,q), 1 <=q<=500 PID 13537
+Ruvaldis and O'Nan PID 9939 and 10134
