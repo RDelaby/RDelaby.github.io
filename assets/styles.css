@@ -60,11 +60,21 @@ h2 {
 
 table {
   width: 100%;
-  border-collapse: collapse; /* cleaner borders */
-  table-layout: auto;        /* let columns size naturally */
+  border-collapse: collapse;
+  table-layout: auto;
   margin-top: 1rem;
 }
 
+table th,
+table td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+}
+
+table thead th {
+  background: var(--card);
+  color: var(--fg);
+}
 h3 { margin-top:1.4rem; font-size:1.18rem; }
 p { margin:0.6rem 0; color:var(--fg); }
 
