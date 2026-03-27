@@ -36,8 +36,11 @@ x := G.1;
 CC := Centralizer(G,x);
 P := TransversalProcess(G,CC);
 geometries := [];
+a := 0;
 
 while (TransversalProcessRemaining(P) gt 0) do
+ t1 := Cputime(t);
+
   g := TransversalProcessNext(P);
   
   p := x^g;
@@ -53,9 +56,11 @@ while (TransversalProcessRemaining(P) gt 0) do
                                   if IsNew(G,geometries,[p,hp,hhp]) and not(HasDualityAndTriality(G, [p,hp,hhp])) then
                                           Append(~geometries, [p,hp,hhp]);
                                   end if;
+                          end if;
                         end if;
                 end if;
         end if;
+        t1 - t;
 end while;
 
 fname := Sprintf("Atlas_ON.txt");
