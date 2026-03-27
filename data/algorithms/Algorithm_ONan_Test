@@ -43,14 +43,19 @@ while (TransversalProcessRemaining(P) gt 0) do
   p := x^g;
   hp:=z*p*z^(-1);
   hhp:=z^2*p*z^(-2);
-  if (sub<G | p, hp, hhp> eq G) and not(sub<G | p,hp> eq G) and (#(sub<G | hp, hhp > meet sub< G |p, hhp > meet sub< G | p, hp >) eq 1) then
-          cg := CosetGeometry(G,{ sub<G | hp, hhp > , sub< G |p, hhp > , sub< G | p, hp >} );
-          if (IsFTGeometry(cg) and IsRC(cg)) then
-                  if IsNew(G,geometries,[p,hp,hhp]) and not(HasDualityAndTriality(G, [p,hp,hhp])) then
-                          Append(~geometries, [p,hp,hhp]);
-                  end if;
-          end if;
-  end if;
+        if (sub<G | p, hp, hhp> eq G) then
+                G1 := sub<G | hp, hhp >;
+                G2 := sub<G | p, hhp >;
+                G3 := sub<G | hp, p >;
+                if (#(G1 meet G2 meet G3) eq 1) then
+                        if (#(G1 meet G2) eq 2) and (#(G1 meet G3) eq 2) and (#(G2 meet G3) eq 2) then
+                          if #(Set(G1) meet Set(G3*G2)) eq 4 then
+                                  if IsNew(G,geometries,[p,hp,hhp]) and not(HasDualityAndTriality(G, [p,hp,hhp])) then
+                                          Append(~geometries, [p,hp,hhp]);
+                                  end if;
+                        end if;
+                end if;
+        end if;
 end while;
 
 fname := Sprintf("Atlas_ON.txt", n);
