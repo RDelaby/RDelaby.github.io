@@ -58,7 +58,7 @@ while (TransversalProcessRemaining(P) gt 0) do
         end if;
 end while;
 
-fname := Sprintf("Atlas_ON.txt", n);
+fname := Sprintf("Atlas_ON.txt");
 
 SetOutputFile(fname);
 
