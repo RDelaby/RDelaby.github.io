@@ -7,9 +7,9 @@ PGammaL(2,q), 1 <=q<=500 PID 13537
 Ruvaldis and O'Nan PID 9939 and 10134
 PSL(2,q), PGL(2,q), PGammaL(2,q) fini pour 1 <= q <= 500 power of a prime.
 J3 PID 23557
+PSigmaL(2,q), 1 <= q <= 500 PID 25526
 
 ONLINE :
 
 Ruvaldis and O'Nan PID 9939 and 10134
 PSU(3,q), 1<=q<=27 PID 23026
-PSigmaL(2,q), 1 <= q <= 500 PID 25526
