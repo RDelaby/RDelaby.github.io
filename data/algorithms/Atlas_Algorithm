@@ -52,9 +52,11 @@ for i in U do
                         hhp:=h(hp);
                         if (sub<G | p, hp, hhp> eq G) and not(sub<G | p,hp> eq G) and (#(sub<G | hp, hhp > meet sub< G |p, hhp > meet sub< G | p, hp >) eq 1) then
                                 cg := CosetGeometry(G,{ sub<G | hp, hhp > , sub< G |p, hhp > , sub< G | p, hp >} );
-                                if (IsFTGeometry(cg) and IsRC(cg)) then
-                                        if IsNew(G,geometries,[p,hp,hhp]) and not(HasDualityAndTriality(G, [p,hp,hhp])) then
-                                                Append(~geometries, [p,hp,hhp]);
+                                if not(HasDualityAndTriality(G, [p,hp,hhp])) then
+                                        if (IsFTGeometry(cg) and IsRC(cg)) then
+                                                if IsNew(G,geometries,[p,hp,hhp]) then
+                                                        Append(~geometries, [p,hp,hhp]);
+                                                end if;
                                         end if;
                                 end if;
                         end if;
