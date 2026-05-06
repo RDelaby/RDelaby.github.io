@@ -6,7 +6,7 @@ Takes as input a permutation group G. Outputs a list of triple of involutions.
 
 t := Cputime();
 
-G := Sym(13);
+G := Sym(11);
 
 function IsNew(G, geometries, geometry)
         rgeom:= Reverse(geometry);
@@ -64,7 +64,7 @@ for i in U do
         end if;
 end for;
 
-SetOutputFile("Atlas_Sym_13.txt");
+SetOutputFile("Test_Rapide.txt");
 
 prediagrams := [];
 
