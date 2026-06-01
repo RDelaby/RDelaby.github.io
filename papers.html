@@ -3,40 +3,36 @@
 <head>
   <!-- MathJax config + macros -->
   <script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$','$$']],
-      macros: {
-        Mvq: "\\mathrm{M}_{24}",
-        Jq: "\\mathrm{J}_4",
-        Alt: "\\mathrm{Alt}",
-        Sym: "\\mathrm{Sym}",
-        PGL: "\\mathrm{PGL}",
-        PSL: "\\mathrm{PSL}"
-      }
-    },
-    svg: { fontCache: 'global' }
-  };
-</script>
-  
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$']],
+        macros: {
+          Mvq: "\\mathrm{M}_{24}",
+          Jq: "\\mathrm{J}_4",
+          Alt: "\\mathrm{Alt}",
+          Sym: "\\mathrm{Sym}",
+          PGL: "\\mathrm{PGL}",
+          PSL: "\\mathrm{PSL}"
+        }
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Papers — Rémi Delaby</title>
-  <meta name="description" content="Full datasets and summary of the incidence geometry classification."/>
+  <meta name="description" content="Research papers and publications by Rémi Delaby."/>
   <link rel="stylesheet" href="assets/styles.css"/>
-  <!-- MathJax (optional); remove if not needed -->
-  <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
   <div class="container">
     <header class="header">
-      <h1 class="title">Papers & productions</h1>
+      <h1 class="title">Papers & Publications</h1>
       <nav>
         <a href="./">Home</a>
         <a href="./atlas.html">Atlas</a>
@@ -44,11 +40,25 @@
     </header>
 
     <div class="card">
-      <p>
-        paper 1.
-      </p>
+      <h2>Journal Articles</h2>
+
+      <ol class="publication-list">
+        <li>
+          <strong>Geometries with trialities arising from linear spaces</strong><br>
+          Rémi Delaby, Dimitri Leemans, Philippe Tranchida.<br>
+          <em>Algebraic Combinatorics</em>,
+          Volume 9 (2026), no. 2, pp. 379–402.<br>
+          DOI:
+          <a href="https://doi.org/10.5802/alco.482">
+            10.5802/alco.482
+          </a>
+          |
+          <a href="https://alco.centre-mersenne.org/articles/10.5802/alco.482/">
+            Article
+          </a>
+        </li>
+      </ol>
     </div>
   </div>
 </body>
 </html>
-``
