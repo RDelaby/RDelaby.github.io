@@ -1,40 +1,38 @@
-The data is subsequent triples of involutions r1,r2,r3 in a list followed by their associated diagram in increasing size of the residues order. 
-Once all the geometries have been enumerated, the algorithm gives the number of the geometries, a list of l such that 
-l[i][1] is a residue size for a geometry and l[i][2] is the number of geometries having l[i][1] as residue size and the time it took to compute it.
-Below is an annotated example for G = PGL(2,27). The commentaries are after // which do not appear in the original txt file.
+The data provided is a list of lists called "involutions" containing list of triples of involutions and a list called "geometries" which contains the coset geometries associated to the involutions in "involutions".
+Below is an annotated example for G := PGL(2,27). The commentaries are after // which do not appear in the original .txt file.
 
-// first triple of involutions.
-[ 
-    (1, 5)(2, 25)(3, 26)(4, 11)(6, 15)(7, 18)(8, 16)(10, 21)(12, 20)(13, 22)(14,
-        28)(17, 24)(23, 27),
-    (1, 14)(2, 25)(3, 27)(4, 17)(5, 6)(7, 28)(8, 20)(9, 23)(10, 26)(11, 18)(12,
-        13)(15, 19)(16, 21),
-    (1, 17)(2, 24)(3, 25)(4, 28)(5, 12)(7, 8)(9, 18)(10, 26)(11, 13)(14, 16)(15,
-        22)(19, 20)(23, 27)
-]
-// diagram for the first list of involutions.
-{1, 2} [ 13, 13, 13 ]
-{1, 3} [ 13, 13, 13 ]
-{2, 3} [ 13, 13, 13 ]
-// second list of involutions.
+G := PGL(2,27); // Automorphism group (type preserving) of the geometry.
+
+involutions := // List containing 2 lists of involutions.
+
 [
-    (1, 14)(2, 15)(3, 6)(4, 20)(7, 18)(8, 22)(9, 26)(10, 13)(12, 24)(16, 23)(17,
-        25)(19, 27)(21, 28),
-    (2, 18)(3, 19)(4, 17)(5, 23)(6, 11)(7, 8)(9, 28)(10, 15)(12, 21)(13, 14)(16,
-        26)(22, 25)(24, 27),
-    (1, 19)(2, 20)(3, 22)(4, 11)(5, 7)(6, 26)(9, 12)(10, 17)(14, 16)(15, 23)(18,
-        27)(21, 25)(24, 28)
+[ // First triple of involutions in PGL(2,27).
+    G!(2, 19)(3, 26)(4, 21)(5, 7)(6, 12)(8, 15)(9, 27)(10, 23)(11, 17)(13, 28)(14,
+        24)(16, 18)(20, 25),
+    G!(1, 20)(2, 22)(3, 10)(4, 21)(6, 26)(7, 24)(8, 27)(9, 13)(11, 16)(12, 17)(14,
+        28)(15, 19)(18, 25),
+    G!(1, 7)(2, 28)(3, 10)(4, 22)(5, 18)(6, 12)(8, 23)(9, 19)(11, 13)(14, 25)(15, 
+        20)(16, 27)(21, 26)
 ]
-// diagram for the second list of involutions.
-{1, 2} [ 14, 14, 14 ]
-{1, 3} [ 14, 14, 14 ]
-{2, 3} [ 14, 14, 14 ]
-// number of geometries is 2.
-2
-// There is 1 geometry with residues of size 13 and 1 geometry with residues of size 14.
-[
-    [ 13, 1 ],
-    [ 14, 1 ]
+,
+[ // Second triple of involutions in PGL(2,27).
+    G!(2, 24)(3, 9)(5, 28)(6, 25)(7, 18)(8, 27)(10, 14)(11, 12)(13, 16)(15, 
+        26)(17, 20)(19, 23)(21, 22),
+    G!(1, 8)(2, 4)(3, 23)(6, 9)(7, 14)(11, 13)(12, 20)(15, 24)(16, 26)(17, 27)(18,
+        22)(19, 28)(21, 25),
+    G!(1, 16)(2, 19)(3, 25)(4, 18)(5, 11)(6, 17)(7, 20)(8, 10)(9, 21)(13, 22)(14, 
+        23)(15, 27)(26, 28)
 ]
-// Computation time is 0.830 seconds.
-0.830
+
+];
+
+geometries := [* *];
+
+// Construction of the coset geometries associated to the involutions.
+
+for i in [1..#involutions] do 
+	G1 := sub<G|involutions[i][2],involutions[i][3]>;
+	G2 := sub<G|involutions[i][1],involutions[i][3]>;
+	G3 := sub<G|involutions[i][1],involutions[i][2]>;
+	Append(~geometries,CosetGeometry(G,{G1,G2,G3}));
+end for;
