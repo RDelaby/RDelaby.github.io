@@ -1,7 +1,7 @@
 /*
 
-Takes as input a permutation group G. Outputs a list of triple of involutions. 
-Prints the result in the file "Atlas_Result.txt".
+Takes as input a permutation group G. Outputs a list called "geometries" of triple of involutions which corresponds to 
+regular hypertopes admitting trialities and no dualities. Prints the result in the file "Atlas_Result.txt".
 
 */
 
